@@ -1,0 +1,29 @@
+{
+  "name": "MEAN_framework",
+  "version": "1.0.0",
+  "description": "Basic framework for MEAN technology",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidpa86/MEAN_framework.git"
+  },
+  "keywords": [
+    "MEAN",
+    "framework"
+  ],
+  "author": "David Parras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidpa86/MEAN_framework/issues"
+  },
+  "homepage": "https://github.com/davidpa86/MEAN_framework",
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "mongoose": "^4.4.2"
+  }
+}
