@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var routes = require('server/routes');
+var passport = require('passport');
 
 var PORT = process.env.PORT || 3000;
 
