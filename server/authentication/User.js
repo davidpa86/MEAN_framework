@@ -21,7 +21,6 @@ UserSchema.methods.validPassword = function(password) {
 };
 
 UserSchema.methods.generateJWT = function() {
-
   // set expiration to 60 days
   var today = new Date();
   var exp = new Date(today);
@@ -32,9 +31,23 @@ UserSchema.methods.generateJWT = function() {
     username: this.username,
     exp: parseInt(exp.getTime() / 1000),
   },
-  /**it is strongly recommended that you use an environment variable for referencing the secret
+  /**it is strongly recommended to use an environment variable for referencing the secret
   and keep it out of your codebase*/
   'SECRET');
 };
 
-mongoose.model('User', UserSchema);
+var User = mongoose.model('Admin', UserSchema);
+
+/**
+  ---Inititial user---
+*/
+/**
+var user = new User();
+user.username = %USER_NAME%;
+user.setPassword(%USER_PASSWORD%);
+
+user.save(function (err,results){
+  if(err){ console.log("User could not be inserted "+err); }
+  else { console.log("User was saved succesfully!");}
+});
+*/
