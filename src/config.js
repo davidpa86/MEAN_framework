@@ -62,6 +62,10 @@ app.controller('AuthCtrl', [
         $state.go('admin');
       });
     };
+    $scope.logOut = function(){
+      authFactory.logOut();
+      $state.go('login');
+    };
   }
 ]);
 
@@ -72,7 +76,8 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
   });
   $stateProvider.state('admin', {
     url: '/admin',
-    template: require('views/admin.html')
+    template: require('views/admin.html'),
+    controller: 'AuthCtrl'
   });
   $stateProvider.state('login', {
     url: '/login',

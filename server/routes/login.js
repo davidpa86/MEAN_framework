@@ -23,4 +23,8 @@ module.exports = function(app, dirName){
   app.get('/login',function(req,res){
     res.sendFile(dirName + '/server/views/index.html');
   });
+
+  app.get('/test',function(req,res){
+    res.sendFile(dirName + '/server/views/index.html');
+  });
 };
