@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var express = require('express');
 var passport = require('passport');
 var User = mongoose.model('Admin');
 
@@ -21,6 +20,6 @@ module.exports = function(app, dirName){
   });
 
   app.get('/login',function(req,res){
-    res.sendFile(dirName + '/server/views/index.html');
+    res.sendFile(dirName + '/public/index.html');
   });
 };
