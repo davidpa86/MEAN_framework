@@ -8,19 +8,19 @@ var UserSchema = new mongoose.Schema({
   salt: String
 });
 
-UserSchema.methods.setPassword = function(password){
+UserSchema.methods.setPassword = (password) => {
   this.salt = crypto.randomBytes(16).toString('hex');
 
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
-UserSchema.methods.validPassword = function(password) {
+UserSchema.methods.validPassword = (password) => {
   var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 
   return this.hash === hash;
 };
 
-UserSchema.methods.generateJWT = function() {
+UserSchema.methods.generateJWT = () => {
   // set expiration to 60 days
   var today = new Date();
   var exp = new Date(today);

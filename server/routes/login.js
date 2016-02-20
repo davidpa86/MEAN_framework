@@ -2,13 +2,13 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var User = mongoose.model('Admin');
 
-module.exports = function(app, dirName){
-  app.post('/login', function(req, res, next){
+module.exports = (app, dirName) => {
+  app.post('/login', (req, res, next) => {
     if(!req.body.username || !req.body.password){
       return res.status(400).json({message: 'Please fill out all fields'});
     }
 
-    passport.authenticate('local', function(err, user, info){
+    passport.authenticate('local', (err, user, info) => {
       if(err){ return next(err); }
 
       if(user){
@@ -19,7 +19,7 @@ module.exports = function(app, dirName){
     })(req, res, next);
   });
 
-  app.get('/login',function(req,res){
+  app.get('/login',(req,res) => {
     res.sendFile(dirName + '/public/index.html');
   });
 };
